@@ -7,11 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.b.a03_activity.MainActivity">
+    android:background="#f00"
+    tools:context="com.example.b.a03_activity.Myactivity">
 
-    <Button
-        android:id="@+id/btnNewActivity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
 </RelativeLayout>
