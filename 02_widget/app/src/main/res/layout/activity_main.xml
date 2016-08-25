@@ -9,7 +9,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     tools:context="com.example.b.a02_widget.MainActivity">
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <Button
         android:textAllCaps="false"
         android:id="@+id/btnHello"
@@ -19,11 +25,48 @@
         android:typeface="monospace"
         android:textStyle="bold"
         android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_height="400dp"
         android:text="Hello World!" />
     <android.support.v7.widget.AppCompatCheckBox
         android:id="@+id/mycheckBox"
         android:text="checkbox 1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    <RadioGroup
+        android:id="@+id/myRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/myRadio1"
+            android:text="radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/myRadio2"
+            android:text="radio2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/myRadio3"
+            android:text="radio3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+    <ToggleButton
+        android:textAllCaps="false"
+        android:textOff="myToggle off"
+        android:textOn="myToggle on"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/myEdit"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        android:hint="input here"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <requestFocus/>
+    </EditText>
+    </LinearLayout>
+    </ScrollView>
 </LinearLayout>
