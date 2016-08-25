@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Myactivity.class);
+                intent.putExtra("id", "jsjs550");
+                intent.putExtra("pw","");
                 startActivity(intent);
             }
         });
