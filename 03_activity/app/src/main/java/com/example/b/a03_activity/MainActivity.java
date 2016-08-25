@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Myactivity.class);
                 intent.putExtra("id", "jsjs550");
-                intent.putExtra("pw","");
+                intent.putExtra("pw","1234567890");
                 startActivity(intent);
             }
         });

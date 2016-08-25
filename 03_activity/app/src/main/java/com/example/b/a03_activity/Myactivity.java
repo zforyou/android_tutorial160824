@@ -14,8 +14,9 @@ public class Myactivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String str = intent.getStringExtra("id").toString();
-        intent.getExtras().get("id").toString();
+
 
         Toast.makeText(Myactivity.this, "id :"+str, Toast.LENGTH_SHORT).show();
+        Toast.makeText(Myactivity.this, "pw :"+intent.getExtras().get("pw").toString(), Toast.LENGTH_SHORT).show();
     }
 }
