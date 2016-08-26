@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode == MY_REQ_NUM){
             if(resultCode == RESULT_OK){
                 String strResult = data.getStringExtra("myResult");
-                Toast.makeText(Myactivity.this, "myResult :"+strResult, Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "myResult :"+strResult, Toast.LENGTH_SHORT).show();
             }
         }
     }
