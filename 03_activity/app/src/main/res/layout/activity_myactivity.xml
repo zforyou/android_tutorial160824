@@ -7,7 +7,12 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#f00"
+    android:background="#ff0"
     tools:context="com.example.b.a03_activity.Myactivity">
 
+    <Button
+        android:id="@+id/btnFinish"
+        android:text="finish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

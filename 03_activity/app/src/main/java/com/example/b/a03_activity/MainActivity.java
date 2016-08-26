@@ -5,9 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final int MY_REQ_NUM = 100;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,8 +21,20 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, Myactivity.class);
                 intent.putExtra("id", "jsjs550");
                 intent.putExtra("pw","1234567890");
-                startActivity(intent);
+//                startActivity(intent);
+                startActivityForResult(intent, MY_REQ_NUM);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == MY_REQ_NUM){
+            if(resultCode == RESULT_OK){
+                String strResult = data.getStringExtra("myResult");
+                Toast.makeText(Myactivity.this, "myResult :"+strResult, Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
