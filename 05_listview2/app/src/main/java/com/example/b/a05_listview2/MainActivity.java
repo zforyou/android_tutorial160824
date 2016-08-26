@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -60,7 +62,21 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            return null;
+            if(convertView == null){
+                convertView = getLayoutInflater().inflate(R.layout.item_view, null);
+            }
+
+            MyData data = list.get(position);
+
+            TextView titleTextView = (TextView) convertView.findViewById(R.id.titleView);
+            TextView descTextView = (TextView) convertView.findViewById(R.id.descView);
+            ImageView iconView = (ImageView) convertView.findViewById(R.id.iconView);
+
+            titleTextView.setText(data.title);
+            descTextView.setText(data.desc);
+            iconView.setImageResource(data.imgId);
+
+            return convertView;
         }
     }
 }
