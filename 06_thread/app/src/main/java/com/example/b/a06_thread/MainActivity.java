@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 btn.setText("count : "+msg.arg1);
                 progressBar.setProgress(msg.arg1);
 
+                
             }
 
         }
