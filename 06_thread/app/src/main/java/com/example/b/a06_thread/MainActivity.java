@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
             if(msg.what == MYTHREAD){
                 btn.setText("count : "+msg.arg1);
                 progressBar.setProgress(msg.arg1);
+
             }
 
         }
