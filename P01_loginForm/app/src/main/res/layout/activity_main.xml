@@ -11,20 +11,24 @@
     tools:context="com.example.b.p01_loginform.MainActivity">
 
     <LinearLayout
+
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
     <TextView
         android:id="@+id/textID"
         android:textSize="25dp"
-        android:text="ID : "
+        android:text="ID   : "
         android:layout_width="50dp"
         android:layout_height="wrap_content" />
     <EditText
+        android:hint="Input ID"
         android:id="@+id/editID"
         android:layout_width="100dp"
         android:layout_height="wrap_content" />
     </LinearLayout>
     <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <TextView
@@ -34,6 +38,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content" />
         <EditText
+            android:hint="Input PW"
             android:id="@+id/editPW"
             android:layout_width="100dp"
             android:layout_height="wrap_content" />
@@ -42,6 +47,6 @@
         android:id="@+id/btnNewActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="LOGIN" />
 
 </LinearLayout>

@@ -4,11 +4,13 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:textSize="30dp"
         android:id="@+id/btnFinish"
-        android:text="Hello : "
+        android:text="Hello! "
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="40dp" />
     <EditText
+        android:layout_toRightOf="@id/btnFinish"
         android:id="@+id/textId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
