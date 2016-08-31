@@ -4,9 +4,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +23,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        localJsonTest();
+        internetJsonTest();
+    }
+    private void internetJsonTest(){
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.get("http://api.androidhive.info/contacts/", new JsonHttpResponseHandler(){
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                try {
+                    JSONArray array = response.getJSONArray("contacts");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                Log.d("contacts", response.toString());
+            }
+        });
+    }
+
+    private void localJsonTest() {
         try {
             JSONArray array = new JSONArray(str);
             for(int i=0; i<array.length(); i++){
