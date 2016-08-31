@@ -3,6 +3,7 @@ package com.example.b.a09_xml;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -14,7 +15,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 public class MainActivity extends AppCompatActivity {
-
+    TextView textView;
     class MyDomParser extends AsyncTask<String, Void, Document>{
 
         private String getElementText(Element dataElement, String tag){
@@ -33,12 +34,13 @@ public class MainActivity extends AppCompatActivity {
             for(int i=0; i<nodeList.getLength(); i++){
                 Element element = (Element)nodeList.item(i);
 
-                strRes += "hour : "+getElementText(element, "hour");
-                strRes += "day : "+getElementText(element, "day");
-                strRes += "temp : "+getElementText(element, "temp");
-                strRes += "wfKor : "+getElementText(element, "wfKor");
-
+                strRes += "시간 : "+getElementText(element, "hour");
+                strRes += " 날짜 : "+getElementText(element, "day");
+                strRes += " 온도 : "+getElementText(element, "temp");
+                strRes += " 날씨 : "+getElementText(element, "wfKor");
+                strRes += "\n";
             }
+            textView.setText(strRes);
         }
 
         @Override
@@ -65,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        textView = (TextView) findViewById(R.id.textView);
         MyDomParser parser = new MyDomParser();
         parser.execute("http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=1159068000");
     }
