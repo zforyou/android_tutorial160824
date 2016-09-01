@@ -9,6 +9,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.b.a11_webview.MainActivity">
 
+    <ProgressBar
+        android:id="@+id/loadingprogressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <Button
         android:onClick="onBtnClick"
         android:text="go"
