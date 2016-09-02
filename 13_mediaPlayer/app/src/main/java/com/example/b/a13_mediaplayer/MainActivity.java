@@ -30,12 +30,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         seekBar = (SeekBar) findViewById(R.id.seekbar);
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if(fromUser == true){
+                    if(mp != null){
+                        mp.seekTo(progress);
+                    }
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
     }
 
     public void onPlayClick(View v){
         if(mp != null) {
             mp.stop();
             mp.release();
+            mp = null;
         }
         String path = Environment.getExternalStorageDirectory().toString();
         path += "/Genie/music/Water Under The Bridge_Adele.mp3";
@@ -56,16 +77,21 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 while (mp != null) {
                     try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
+                        int position = mp.getCurrentPosition();
+                        Message msg = handler.obtainMessage();
+                        msg.what = SEEKBAR_CURR_POSITION;
+                        msg.arg1 = position;
+                        handler.sendMessage(msg);
+
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    } catch (Exception e) {
+
                         e.printStackTrace();
                     }
-
-                    int position = mp.getCurrentPosition();
-                    Message msg = handler.obtainMessage();
-                    msg.what = SEEKBAR_CURR_POSITION;
-                    msg.arg1 = position;
-                    handler.sendMessage(msg);
                 }
             }
         });
@@ -73,9 +99,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onStopClick(View v){
-        if(mp != null) {
-            mp.stop();
-            mp.release();
+        try {
+            if(mp != null) {
+                mp.stop();
+                mp.release();
+                mp = null;
+                seekBar.setProgress(0);
+        }
+
+        }catch(Exception e) {
+
+            e.printStackTrace();
         }
     }
 
