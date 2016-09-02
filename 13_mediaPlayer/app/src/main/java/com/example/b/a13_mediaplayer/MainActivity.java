@@ -54,17 +54,19 @@ public class MainActivity extends AppCompatActivity {
         Thread th = new Thread(new Runnable() {
             @Override
             public void run() {
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                while (mp != null) {
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
 
-                int position = mp.getCurrentPosition();
-                Message msg = handler.obtainMessage();
-                msg.what = SEEKBAR_CURR_POSITION;
-                msg.arg1 = position;
-                handler.sendMessage(msg);
+                    int position = mp.getCurrentPosition();
+                    Message msg = handler.obtainMessage();
+                    msg.what = SEEKBAR_CURR_POSITION;
+                    msg.arg1 = position;
+                    handler.sendMessage(msg);
+                }
             }
         });
         th.start();
