@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> list = new ArrayList<>();
 
     class MyData{
-        public MyDate(int imgId, String title, String artist, String duration){
+        public MyData(int imgId, String title, String artist, String duration){
             this.imgId = imgId;
             this.title = title;
             this.artist = artist;
