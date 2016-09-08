@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onBtnClick(View v){
-        showDialog(MY_DIALOG);
+//        showDialog(MY_DIALOG);
+        MyPopup myPopup = new MyPopup(MainActivity.this);
+        myPopup.show();
     }
 }
