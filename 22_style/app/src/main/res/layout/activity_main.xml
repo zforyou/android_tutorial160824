@@ -10,6 +10,7 @@
     tools:context="com.example.b.a22_style.MainActivity">
 
     <Button
+
         android:background="#aabbcc"
         style="@style/MyButtonStyle"
         android:text="button1"
