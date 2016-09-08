@@ -2,6 +2,8 @@ package com.example.b.a23_location;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -10,17 +12,21 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     TextView textView;
+    Geocoder geocoder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView = (TextView) findViewById(R.id.textView);
+
+        geocoder = new Geocoder(MainActivity.this);
 
         LocationManager manager = (LocationManager) getSystemService(LOCATION_SERVICE);
         List<String> providers = manager.getAllProviders();
@@ -36,6 +42,15 @@ public class MainActivity extends AppCompatActivity {
                 String str = "lat : " + location.getLatitude() +
                         " lon : " + location.getLongitude() + "\n";
                 textView.append(str);
+
+                try {
+                    List<Address> list = geocoder.getFromLocation(location.getLatitude(),
+                            location.getLongitude(), 10);
+                    Address address = list.get(0);
+                    textView.append(address.toString());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
