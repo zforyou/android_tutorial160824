@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
             builder.setTitle("TITLE");
             builder.setMessage("MESSAGE");
             builder.setIcon(R.mipmap.ic_launcher);
-
+//            builder.setCancelable(false);
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
                     dialog.dismiss();
                 }
             });
+            builder.setView(R.layout.dialog_layout);
             return builder.create();
         }
         return null;
