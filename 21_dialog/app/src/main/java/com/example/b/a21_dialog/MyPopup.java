@@ -10,6 +10,7 @@ import android.widget.Button;
  * Created by b on 2016-09-08.
  */
 public class MyPopup extends Dialog {
+    Context context;
     public MyPopup(Context context) {
         super(context);
     }
@@ -24,7 +25,7 @@ public class MyPopup extends Dialog {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dismiss();
+                new MyPopup(context).show();
             }
         });
     }
