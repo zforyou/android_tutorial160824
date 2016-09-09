@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
                                 .setSmallIcon(R.mipmap.ic_launcher)
                                 .setLargeIcon(bitmap)
                                 .setContentIntent(pIntent)
+                                .setAutoCancel(true)
                                 .build();
 
 
